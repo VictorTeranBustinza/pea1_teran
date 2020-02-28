@@ -1,0 +1,93 @@
+
+1. Diagramar una clase llamada producto, con sus atributos y operaciones.
+
+
+DELIMITER $$
+CREATE PROCEDURE insertar_producto(
+IN _p_id_producto INT;
+IN _p_nombre VARCHAR(30),
+IN _p_precio NUMERIC (6,2),
+OUT _p_confirm INT
+)
+BEGIN
+    UPDATE producto
+        SET nombre = _p_
+    DECLARE _v_id_prod INT;
+    SET _p_nombre = UPPER(_p_nombre);
+    SET _p_precio = _p_precio * 3.5;
+    --
+    SELECT FLOOR (1 + RAND() * 60) INTO _v_id_prod;
+    --
+    INSERT INTO producto
+        (id_producto, desc_producto, precio)
+        VALUES  
+        (_v_id_prod, _p_nombre , _p_precio);
+        --
+        IF ROW_COUNT() > 0 THEN
+            SET _p_confirm = 1;
+        ELSE
+            SET _p_confirm = 0;
+        END IF;    
+END$$
+DELIMITER ; 
+----------------------------------------------------------------------------------------------------------------------------------
+
+Create Database Ventas;
+	Use Databases;
+Create Table Productos (id_producto INT,nombre VARCHAR(30),precio NUMERIC(6,2))
+	Select * from Productos;
+
+Insert into Productos values (1,'Teclado',100);
+Insert into Productos values (2,'Mando PS4',200);
+Insert into Productos values (3,'Ventilador',300);
+Insert into Productos values (4,'Silla Gamer',400);
+Insert into Productos values (5,'PC Gamer',2000);	
+	Select * from Productos;
+
+______________________________________________________________________________________________________________________
+
+
+2. ¿Qué es un jar y para qué sirve?
+
+Es un archivo que permite recopilar en un solo fichero varios ficheros diferentes.
+El JAR es algo parecido a los ficheros.zip , la diferencia entre estos ,son que el JAR no necesita ser
+descomprimido para ser usado,por eso JAVA ejecuta directamente los archivos comprimidos en un JAR.
+
+______________________________________________________________________________________________________________________
+
+3.  ¿Qué es el patrón MVC?
+
+Son las siglas de Modelo,Vista y Controladores.
+Ejm:
+
+        El usuario -->  solicita --> CONTROLADOR -->  Comunican Datos -->  MODELO
+                 |		 |
+            VISTA      <--    Datos
+
+MODELO
+Se encarga de los datos.
+
+CONTROLADOR
+Se encarga de controlar, recibe las órdenes del usuario y se encarga de solicitar los datos al modelo y de comunicárselos a la vista.
+
+VISTAS
+Son la representación visual de los datos, todo lo que tenga que ver con la interfaz gráfica va aquí. 
+
+______________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+			 
+		                 	
+			 
+
+
+
+
+
+
